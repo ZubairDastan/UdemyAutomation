@@ -3,16 +3,15 @@ package Page;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.time.Duration;
 import java.util.List;
 
 public class Pages {
     WebDriver webDriver;
+
     @FindBy(xpath = "//body/div[2]/div[1]/div[3]/div[7]/a[1]")
     WebElement btnSignUp;
     @FindBy(id = "id_fullname")
@@ -36,7 +35,19 @@ public class Pages {
     @FindBy(css = "button")
     List<WebElement> next2;
     @FindBy(css = "a")
-    List<WebElement> finish;
+    List<WebElement> btnFinish;
+    @FindBy(className = "udlite-accordion-panel-title")
+    List<WebElement> priceFilter;
+    @FindBy(name = "price")
+    List<WebElement> free;
+    @FindBy(css = "img")
+    List<WebElement> courseImage;
+    @FindBy(css = "button")
+    List<WebElement> btnEnroll;
+    @FindBy(xpath = "//a[contains(aria-label, \"My profile\")]")
+    WebElement profile;
+    @FindBy(className = "udlite-block-list-item-content")
+    List<WebElement> clkLogout;
 
     public Pages (WebDriver webDriver){
         this.webDriver = webDriver;
@@ -46,7 +57,7 @@ public class Pages {
     public void signUp(){
         btnSignUp.click();
         setName.sendKeys("Zubair Hasan");
-        setMail.sendKeys("zubairdastan7@yahoo.com");
+        setMail.sendKeys("zubairdastan11@yahoo.com");
         setPass.sendKeys("987654321dcba");
         checkBox.click();
         btnSubmitSignUp.click();
@@ -63,10 +74,22 @@ public class Pages {
         webDev.click();
         Thread.sleep(1000);
         next2.get(69).click();
-        finish.get(1).click();
-
+        btnFinish.get(1).click();
     }
 
+    public void enrollCourse(){
+        ((JavascriptExecutor) webDriver).executeScript(
+                "arguments[0].scrollIntoView();", priceFilter);
+        priceFilter.get(6).click();
+        free.get(1).click();
+        courseImage.get(14).click();
+        btnEnroll.get(6).click();
+    }
 
-
+    public void logOut() throws InterruptedException {
+        Actions actions = new Actions(webDriver);
+        actions.moveToElement(profile).perform();
+        Thread.sleep(1000);
+        clkLogout.get(27).click();
+    }
 }

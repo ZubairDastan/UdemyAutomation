@@ -20,4 +20,17 @@ public class UdemyTestRunner extends EnvironmentSetup {
         pages.selectGoal();
     }
 
+    @Test(priority = 3)
+    public void courseEnroll(){
+        driver.get("https://www.udemy.com/topic/selenium-webdriver/");
+        Pages pages = new Pages(driver);
+        pages.enrollCourse();
+    }
+
+    @Test(priority = 4)
+    public void doLogOut() throws InterruptedException {
+        Pages pages = new Pages(driver);
+        pages.logOut();
+    }
+
 }
