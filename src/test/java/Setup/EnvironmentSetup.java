@@ -41,7 +41,7 @@ public class EnvironmentSetup {
 
     @AfterTest(groups = "purchase")
     public void logout() {
-        driver.close();
+//        driver.close();
     }
 
 }
