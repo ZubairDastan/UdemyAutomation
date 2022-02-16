@@ -19,7 +19,7 @@ public class EnvironmentSetup {
         System.setProperty("webdriver.chrome.driver", "./src/test/resources/chromedriver.exe");
         ChromeOptions ops = new ChromeOptions();
         ops.addArguments("--headed");
-        ops.addArguments("--disable-blink-features=AutomationControlled"); //To avoid being detected as automation tool. It will skip captcha.
+        ops.addArguments("--disable-blink-features=AutomationControlled"); //To avoid being detected as automation tool. Captcha page won't open.
         driver = new ChromeDriver(ops);
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
@@ -39,7 +39,7 @@ public class EnvironmentSetup {
 
     @AfterTest(groups = "purchase")
     public void logout() {
-//        driver.close();
+        driver.close();
     }
 
 }
