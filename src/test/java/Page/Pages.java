@@ -63,7 +63,7 @@ public class Pages {
     public void signUp1() {
         btnSignUp.click();
         setName.sendKeys("Zubair Hasan");
-        setMail.sendKeys("udemytest0001@yahoo.com");
+        setMail.sendKeys("udemytest1001@yahoo.com");
         setPass.sendKeys("987654321dcba");
         checkBox.click();
         btnSubmitSignUp.click();
@@ -72,7 +72,7 @@ public class Pages {
     public void signUp2() {
         btnSignUp.click();
         setName.sendKeys("Zubair Hasan");
-        setMail.sendKeys("udemytest102@yahoo.com");
+        setMail.sendKeys("udemytest1002@yahoo.com");
         setPass.sendKeys("987654321dcba");
         checkBox.click();
         btnSubmitSignUp.click();
@@ -81,7 +81,7 @@ public class Pages {
     public void signUp3() {
         btnSignUp.click();
         setName.sendKeys("Zubair Hasan");
-        setMail.sendKeys("udemytest103@yahoo.com");
+        setMail.sendKeys("udemytest1003@yahoo.com");
         setPass.sendKeys("987654321dcba");
         checkBox.click();
         btnSubmitSignUp.click();
